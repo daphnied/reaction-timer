@@ -9,9 +9,11 @@
       #shape {
 
         width: 200px;
-        height: 200px,auto;
+        height: 200px;
         background-color: red;
         display: none;
+        position: relative;
+
 
       }
     </style>
@@ -30,11 +32,27 @@
 
       function makeShapeAppear(){
 
-        document.getElementById("shape").style.display = "block"
+        var top = Math.random() * 400;
+
+        var left = Math.random() * 400;
+
+        document.getElementById("shape").style.top = top + "px";
+
+        document.getElementById("shape").style.left = left + "px";
+
+        document.getElementById("shape").style.display = "block";
+
+        start = new Date().getTime();
+
+
+      }
+      function appearAfterDelay(){
+
+        setTimeout(makeShapeAppear, Math.random() * 2000);
 
       }
 
-      setTimeout (makeShapeAppear, 1000);
+      appearAfterDelay();
 
       document.getElementById("shape").onclick = function (){
 
@@ -42,11 +60,11 @@
 
         var end = new Date().getTime();
 
-        var timeTaken = end - start / 1000;
+        var timeTaken = (end - start) / 1000;
 
         document.getElementById("timeTaken").innerHTML = timeTaken + "s";
 
-
+        appearAfterDelay();
 
       }
 
