@@ -2,9 +2,17 @@
 
   <head>
 
-    <title>JavaScript</title>
+    <title>Reaction Timer</title>
 
     <style type="text/css">
+
+      body {
+
+        font-family: fantasy;
+
+      }
+
+
 
       #shape {
 
@@ -16,13 +24,22 @@
 
 
       }
+
+      .bold {font-weight: bold;
+
+
+      }
     </style>
 
   </head>
 
   <body>
 
-    <p>Your time: <span id="timeTaken"></span></p>
+    <h1>Test Your Reactions!</h1>
+
+    <p>Click on the boxes and circles as fast as you can!</p>
+
+    <p class="bold">Your time: <span id="timeTaken"></span></p>
 
     <div id="shape"></div>
 
@@ -52,7 +69,18 @@
 
         var left = Math.random() * 400;
 
-        var width = Math.random() * 300;
+        var width = (Math.random() * 200) + 100;
+
+        if (Math.random () > 0.5) {
+
+            document.getElementById("shape").style.borderRadius = "50%";
+
+        } else {
+
+            document.getElementById("shape").style.borderRadius = "0";
+
+        }
+
 
         document.getElementById("shape").style.backgroundColor = getRandomColor();
 
